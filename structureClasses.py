@@ -11,7 +11,6 @@ from decimal import Decimal as d
 import math
 from scipy.optimize import fsolve
 
-
 class drilledShaft(object):
     def __init__(self, name):
         self.name = name
@@ -155,20 +154,7 @@ class drilledShaft(object):
 #
 #         givenN = lambda M, N: fS + nForce(M, N) - ((nForce(M, N) * nArm(M, N)) / mArm(M))
 #         givenM = lambda M, N: mForce(M) * mArm(M) - nForce(M, N) * nArm(M, N)
-#
-#         bestAns = None
-#         for i in xrange(1000):
-#             for x in xrange(1000):
-# #                print "i, x =", (i/100, x/100)
-#                 ans =  givenN(i/100.0, x/100.0)
-#                 if bestAns == None:
-#                     bestAns = (i/100.0, x/100.0)
-#                     closest = ans
-#                 elif abs(closest) > abs(ans):
-#                     bestAns = (i/100.0, x/100.0)
-#                     closest = ans
-#
-#         print bestAns, givenN(bestAns[0], bestAns[1]), givenM(bestAns[0], bestAns[1])
+
 
     def resistTorSand(self, debug = False):
         """calculate the shaft embedment required to resist torsion in cohesionless \
@@ -207,10 +193,6 @@ class drilledShaft(object):
             print "Factored Torsion (lb-ft) =", factoredTorsion
         self.shaftEmbSTor = L_ceil
         return self.shaftEmbSTor
-
-
-
-
 
     def __str__(self):
         return self.name
